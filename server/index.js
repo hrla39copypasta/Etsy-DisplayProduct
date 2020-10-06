@@ -16,7 +16,7 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 
 app.get('/product-display', (req, res) => {
-  models.get((results, err) => {
+  models.getInfo((results, err) => {
     if (err) {
       res.status(400).send(err)
     } else {
@@ -24,6 +24,17 @@ app.get('/product-display', (req, res) => {
     }
   })
 })
+
+app.get('/photo-display', (req, res) => {
+  models.getPhotos((results, err) => {
+    if (err) {
+      res.status(400).send(err)
+    } else {
+      res.status(200).send(results)
+    }
+  })
+})
+
 
 
 

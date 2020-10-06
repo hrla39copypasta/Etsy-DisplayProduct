@@ -13,19 +13,23 @@ CREATE TABLE etsy_ProductDescription (
   price INT(15) NOT NULL,
   style VARCHAR(255),
   materials VARCHAR(255),
-  info VARCHAR(255),
+  info VARCHAR(2500),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE etsy_PhotoProductDisplay (
   id int AUTO_INCREMENT NOT NULL,
-  sellerName VARCHAR(255),
+  sellerName VARCHAR(255) NOT NULL,
   img VARCHAR(255) NOT NULL,
   img1 VARCHAR(255) NOT NULL,
   img2 VARCHAR(255) NOT NULL,
   img3 VARCHAR(255) NOT NULL,
   img4 VARCHAR(255) NOT NULL,
   img5 VARCHAR(255) NOT NULL,
+  img6 VARCHAR(255) NOT NULL,
+  img7 VARCHAR(255) NOT NULL,
+  img8 VARCHAR(255) NOT NULL,
+  img9 VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
 
