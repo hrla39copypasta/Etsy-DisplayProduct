@@ -6,9 +6,6 @@ const PDLeftContainer= styled.div `
   max-height: 630px;
   width: 100%
   position: relative;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +23,6 @@ const PDSlide = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10%;
 `;
 
 const PDThumbnail = styled.img `
@@ -36,7 +32,7 @@ const PDThumbnail = styled.img `
   cursor: pointer;
   align-items: center;
   opacity: 0.5;
-  border: 1px solid black;
+  border: 1px white;
   margin-bottom: 2px;
   border-radius: 10%;
 
@@ -55,24 +51,27 @@ export default class ThumbnailDisplay extends React.Component {
   }
 
   render(){
-    console.log(this.props.arrOfPhotos.length)
     return (
-      <div className="left-content-thumbnail" style={{width: "100%"}}>
+
+      <div className="left-content-thumbnail">
         <PDLeftContainer>
           {
             this.props.arrOfPhotos.map((photo, index) => {
               return (
+
                 <PDSlide>
-                <PDThumbnail style={index === this.props.currPhotoIndex ? {opacity: "1" } : {}}
+                <PDThumbnail
+                style={index === this.props.currPhotoIndex ? {opacity: "1", border: "2px solid black" } : {}}
                 onClick={() => this.props.changeCurrPhotoIndex(index)}src={photo} key={index}></PDThumbnail>
                 </PDSlide>
+
               )
             })
           }
         </PDLeftContainer>
         </div>
     )
-
   }
+
 }
 

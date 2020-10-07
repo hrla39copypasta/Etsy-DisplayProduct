@@ -13,10 +13,11 @@ const PDModal = styled.div `
   right: 0;
   bottom: 0;
   overflow: auto;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
  `;
-
 
  export default class Modal extends React.Component {
   constructor(props) {
@@ -32,10 +33,15 @@ const PDModal = styled.div `
   render () {
     return (
       <div>
-      <PDModal ref={this.ref} style={this.props.isZoomed || this.props.isFavorited ? {display: "block"} : {}} onClick={(e) => this.props.disableModal(e, this.ref.current)} >
+
+      <PDModal
+      ref={this.ref} style={this.props.isZoomed || this.props.isFavorited ? {display: "block"} : {}}
+      onClick={(e) => this.props.disableModal(e, this.ref.current)} >
         {this.props.children}
       </PDModal>
+
       </div>
     )
   }
+
  }

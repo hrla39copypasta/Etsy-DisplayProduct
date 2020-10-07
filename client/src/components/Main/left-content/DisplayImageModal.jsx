@@ -3,28 +3,80 @@ import reactDOM from 'react-dom';
 import styled from 'styled-components';
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
-import Zoom from 'react-img-zoom';
+
+
 
 const PDDisplayImageModalBody = styled.div `
   margin: 3% auto;
   width: 65%;
-  padding: 20px;
+  padding: 10px;
   display: flex;
+  justify-content: center;
+  object-fit: contain;
+
 `;
 
-const PDDisplayImageImg = styled.img `
+const PDDisplayImageSlide = styled.div `
+  height: 640px;
+  width: 859px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 100px;
+  border-radius: 2% 2% 2% 2%;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+
+    &:hover div{
+      opacity: 0;
+    }
+`;
+
+const PDDisplayImageImg = styled.div `
   display: block;
   margin-left: auto;
   margin-right: auto;
-  min-height: 650px;
-  max-height: 650px;
+  min-height: 100%;
+  max-height: 100%;
   max-width: 100%;
-  border-radius: 2%;
-  object-fit: contain;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 640px;
+  width: 859px;
+  background-position: 50% 50%;
+  opacity: 1;
+  background-image: none;
 
-
+  &:hover {
+    cursor: pointer;
+    opacity: 0;
+  }
 `;
 
+const PDThumbnailWrapper = styled.div `
+  max-width: 280px;
+  width: 40%;
+  border-radius: 6px;
+  min-width: 155px;
+  align-items: center;
+  object-fit: contain;
+  width: 400px;
+  height: 650px;
+  overflow-y: scroll;
+`;
+
+const PDDisplayImageThumbnail = styled.img `
+  width: 103px;
+  height: 105px;
+  cursor: pointer;
+  border: 1px solid black;
+  margin: auto 2px;
+  border-radius: 10%;
+`;
 
 const PDGoLeft = styled.button `
   position: absolute;
@@ -67,46 +119,6 @@ const PDGoRight = styled.button `
     transform: scale(1.10, 1.10);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.21);
   }
-
-`;
-
-const PDDisplayImageLeftContainer= styled.div `
-  max-height: 630px;
-  width: 100%
-  position: relative;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10%;
-  overflow-y: hidden;
-`;
-
-const PDDisplayImageSlide = styled.div `
-  max-height: 600px;
-  width: 859px;
-  position: relative;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 100px;
-
-`;
-
-const PDDisplayImageThumbnail = styled.img `
-  max-width: 60px;
-  min-height: 60px;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  border: 1px solid black;
-  margin-bottom: 5px;
-  border-radius: 10%;
 `;
 
 
@@ -116,26 +128,11 @@ export default class DisplayImageModal extends React.Component {
     super(props);
     this.state={
       modalPhotoIndex: this.props.currPhotoIndex,
-      isZoomed: false
+      backgroundPosition: '0% 0%',
     }
-
+    this.handleMouseMove = this.handleMouseMove.bind(this);
   }
 
-  zoomIn() {
-    this.setState({
-      isZoomed: true
-    }, () => {
-      console.log('zoomed IN')
-    });
-  }
-
-  zoomOut() {
-    this.setState({
-      isZoomed: false
-    }, () => {
-      console.log('zoomed out')
-    });
-  }
 
   handleLeftClick() {
     if (this.state.modalPhotoIndex === 0) {
@@ -146,8 +143,6 @@ export default class DisplayImageModal extends React.Component {
     }
     this.setState({
       modalPhotoIndex: this.state.modalPhotoIndex - 1
-    }, () => {
-      console.log(this.state.modalPhotoIndex)
     })
   }
 
@@ -160,8 +155,6 @@ export default class DisplayImageModal extends React.Component {
     }
     this.setState({
       modalPhotoIndex: this.state.modalPhotoIndex + 1
-    }, () => {
-      console.log(this.state.modalPhotoIndex)
     })
   }
 
@@ -171,37 +164,57 @@ export default class DisplayImageModal extends React.Component {
     })
   }
 
+  handleMouseMove (e) {
+    const { left, top, width, height } = e.target.getBoundingClientRect()
+    const x = (e.pageX - left) / width * 100
+    const y = (e.pageY - top) / height * 100
+    this.setState({
+      backgroundPosition: `${x}% ${y}%`
+    })
+  }
+
+
+
 
 
   render(){
-
     return (
 
       <PDDisplayImageModalBody>
-          <PDDisplayImageSlide  onClick={() => this.state.isZoomed ? this.zoomOut() : this.zoomIn()}>
-            <PDDisplayImageImg src={this.props.arrOfPhotos[this.state.modalPhotoIndex]} ></PDDisplayImageImg>
+
+          <PDDisplayImageSlide
+            style={{backgroundPosition: this.state.backgroundPosition,  backgroundImage: "url('" + this.props.arrOfPhotos[this.state.modalPhotoIndex] + "')"}}
+            onMouseMove={this.handleMouseMove}>
+
+            <PDDisplayImageImg
+              className ="ModalImage"
+              style={
+                {backgroundImage: "url('" + this.props.arrOfPhotos[this.state.modalPhotoIndex] + "')"}}>
+            </PDDisplayImageImg>
 
             <PDGoLeft onClick={() => this.handleLeftClick()} ><FiChevronLeft className="PDGoLeftIconZoomed"/></PDGoLeft>
 
             <PDGoRight onClick={() => this.handleRightClick()} ><FiChevronRight className="PDGoRightIconZoomed"/></PDGoRight>
+
           </PDDisplayImageSlide>
 
-          <div>
+
+          <PDThumbnailWrapper className="thumbnailwrapper">
               {
                 this.props.arrOfPhotos.map((photo, index) => {
                   return (
-
                     <PDDisplayImageThumbnail
-                    onClick={() => this.changeModalPhotoIndex(index)}src={photo} key={index}></PDDisplayImageThumbnail>
-
+                    ref={this.state.ref}
+                    onClick={() => this.changeModalPhotoIndex(index)}src={photo} key={index}
+                    style={(index + 1) % 3 === 0 ? {height: "218px", width: "218px"} : {}}
+                    >
+                    </PDDisplayImageThumbnail>
                   )
                 })
               }
-
-          </div>
+               </PDThumbnailWrapper>
 
       </PDDisplayImageModalBody>
-
 
       )
     }
