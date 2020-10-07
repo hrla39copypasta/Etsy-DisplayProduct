@@ -12,13 +12,17 @@ const PDFavoritedModalBody = styled.div `
 const PDAddToFavorites = styled.div `
   font-family: "Graphik-Regular";
   font-style: normal;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 300;
   line-height: 19px;
   font-color: #595959;
-  padding: 7px 5px;
 `;
 
+const PDAddToFavoritesImgIcon = styled.img `
+  width: 70px;
+  height: 65px;
+  right: 0;
+`;
 
 const PDTopLine = styled.div `
   color: #595959;
@@ -26,9 +30,7 @@ const PDTopLine = styled.div `
   flex: 1 1;
   border-bottom: 1px solid #000;
   margin: auto;
-
 `;
-
 
 const PDTitle = styled.div `
   font-family: "Graphik-Regular";
@@ -57,8 +59,6 @@ const PDSignInEmail = styled.div `
   font-weight: bold;
   line-height: 18px;
   font-color: #222222;
-
-
 `;
 
 const PDEmailInput = styled.input `
@@ -86,28 +86,25 @@ const PDEmailInput = styled.input `
 `;
 
 const PDContinueButton = styled.button `
+  width: 100%;
+  margin: 10px 0;
+  background-color: #222222;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 150ms ease;
+  color: #ffffff;
   font-family: "Graphik-Regular";
   font-style: normal;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   line-height: 24px;
-  color: #ffffff;
-  display: inline-block;
-  padding: 10px 125px;
-  border-radius: 100px;
-  background-color: #222222;
-  white-space: nowrap;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  min-width: 315px;
-  max-width: 315px;
-  outline: none;
 
   &:hover {
-    transform: scale(1.01, 1.01);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 0 1px 12px 0 rgba(34,34,34,0.2);
     opacity: 0.9;
   }
 `;
@@ -157,26 +154,27 @@ const PDLine = styled.div `
 
 
 const PDContinueWith = styled.button `
+  width: 100%;
+  margin: 10px 0;
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 150ms ease;
+  color: #222222;
   font-family: "Graphik-Regular";
   font-style: normal;
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
-  background-color: #ffffff;
-  border-radius: 100px;
-  color: #222222;
-  cursor: pointer;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  outline: none;
-  min-width: 315px;
-  max-width: 315px;
-  padding-bottom: 10px;
 
   &:hover {
-    transform: scale(1.01, 1.01);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
-  }
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 0 1px 12px 0 rgba(34,34,34,0.2);
+    opacity: 0.9;
+}
 
 `;
 
@@ -185,8 +183,6 @@ const PDOr = styled.div `
   margin-left: -24px;
   margin-right: -24px;
 `;
-
-
 
 const PDTerms= styled.div `
   font-family: "Graphik-Regular";
@@ -205,46 +201,55 @@ const PDIconImg = styled.img `
   margin-top: 15px;
 `;
 
+const PDWrapper = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 5px;
+`;
+
+
 
 function FavoritedModal (props) {
     return (
 
         <PDFavoritedModalBody>
 
-          <PDAddToFavorites>Add to favorites</PDAddToFavorites>
+          <PDWrapper>
+            <PDAddToFavorites><strong>Add to favorites</strong><br></br>
+              {props.currProduct.productName}</PDAddToFavorites>
+            <PDAddToFavoritesImgIcon src={props.arrOfPhotos[0]}></PDAddToFavoritesImgIcon>
+          </PDWrapper>
 
           <PDTopLine></PDTopLine>
-      <PDTitle>Before you can do that...</PDTitle>
-      <PDTitleInstructions>Sign in or register with your email address</PDTitleInstructions>
-      <PDSignInEmail>
-        Email address
-      </PDSignInEmail>
-      <PDEmailInput></PDEmailInput>
-      <PDContinueButton>Continue</PDContinueButton>
-      <br></br>
-      <PDTrouble>Trouble signing in?</PDTrouble>
-      <PDOr><PDLine>OR</PDLine></PDOr>
+          <PDTitle>Before you can do that...</PDTitle>
+          <PDTitleInstructions>Sign in or register with your email address</PDTitleInstructions>
+          <PDSignInEmail>Email address</PDSignInEmail>
+          <PDEmailInput></PDEmailInput>
+          <PDContinueButton>Continue</PDContinueButton>
+          <br></br>
+          <PDTrouble>Trouble signing in?</PDTrouble>
+          <PDOr><PDLine>OR</PDLine></PDOr>
 
-      <PDContinueWith>
-        <PDIconImg src="https://img.icons8.com/color/96/000000/google-logo.png"></PDIconImg>
-         Continue with Google
+          <PDContinueWith>
+            <PDIconImg src="https://img.icons8.com/color/96/000000/google-logo.png"></PDIconImg>
+            Continue with Google
+          </PDContinueWith>
 
-      </PDContinueWith>
+          <PDContinueWith>
+            <PDIconImg src="https://img.icons8.com/color/96/000000/facebook.png"></PDIconImg>
+            Continue with Facebook
+          </PDContinueWith>
 
-      <PDContinueWith>
-        <PDIconImg src="https://img.icons8.com/color/96/000000/facebook.png"></PDIconImg>
-        Continue with Facebook
-      </PDContinueWith>
+          <PDContinueWith>
+            <PDIconImg src="https://img.icons8.com/fluent-systems-filled/96/000000/mac-os.png"></PDIconImg>
+            Continue with Apple
+          </PDContinueWith>
 
-      <PDContinueWith>
-        <PDIconImg src="https://img.icons8.com/fluent-systems-filled/96/000000/mac-os.png"></PDIconImg>
-        Continue with Apple
-      </PDContinueWith>
-
-      <PDTerms>By clicking Sign in or Continue with Google, Facebook, or Apple, you agree to Etsy's <u>Terms of Use</u> and <u>Privacy Policy</u>. Etsy may send you communications; you may change your preferences in your account settings. We'll never post without your permission.</PDTerms>
+          <PDTerms>By clicking Sign in or Continue with Google, Facebook, or Apple, you agree to Etsy's <u>Terms of Use</u> and <u>Privacy Policy</u>. Etsy may send you communications; you may change your preferences in your account settings. We'll never post without your permission.</PDTerms>
         </PDFavoritedModalBody>
-
     )
-  }
+
+}
 
 export default FavoritedModal;

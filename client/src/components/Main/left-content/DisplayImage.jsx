@@ -26,18 +26,31 @@ const PDLeftContainer= styled.div `
   max-height: 640px;
   min-width: 100%;
   max-width: 100%;
+  object-fit: contain;
  `;
 
- const PDMainImage = styled.img `
-  display: block;
-  border-radius: 10%;
+ const PDMainImageWrapper = styled.div `
+  border-radius: 5%;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
-  object-fit: contain;
   min-height: 640px;
   max-height: 640px;
   min-width: 100%;
   max-width: 100%;
+  object-fit: contain;
+ `;
+
+ const PDMainImage = styled.img `
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 640px;
+  max-height: 640px;
+  min-width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
  `;
 
  const PDGoLeft = styled.button `
@@ -59,7 +72,6 @@ const PDLeftContainer= styled.div `
     transform: scale(1.10, 1.10);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.21);
   }
-
  `;
 
  const PDGoRight = styled.button `
@@ -81,9 +93,7 @@ const PDLeftContainer= styled.div `
     transform: scale(1.10, 1.10);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.21);
   }
-
  `;
-
 
  const PDHeart = styled.button `
   position: absolute;
@@ -107,9 +117,7 @@ const PDLeftContainer= styled.div `
     transform: scale(1.10, 1.10);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.21);
   }
-
  `;
-
 
 
 export default class DisplayImage extends React.Component {
@@ -127,7 +135,9 @@ export default class DisplayImage extends React.Component {
     <PDLeftContainer className="left-middle-content-displayProduct" >
 
      <PDSlide onClick={() => {this.props.zoomedModalPopUp()}}>
+      <PDMainImageWrapper>
         <PDMainImage src={this.props.arrOfPhotos[this.props.currPhotoIndex]}></PDMainImage>
+      </PDMainImageWrapper>
      </PDSlide>
 
       <PDGoLeft onClick={() => this.props.handleLeftClick()} ><FiChevronLeft className="PDGoLeftIcon"/></PDGoLeft>
@@ -137,7 +147,6 @@ export default class DisplayImage extends React.Component {
       <PDHeart onClick={() => {this.props.favoritedModalPopUp()}}><FiHeart className="PDHeartButton"/></PDHeart>
 
     </PDLeftContainer>
-
     )
   }
 

@@ -13,8 +13,23 @@ import FavoritedModal from './left-content/FavoritedModal.jsx';
 
 const MainContainer = styled.div`
   display: grid;
-  grid-template-columns: 10% 55% 35%;
-  margin: 50px;
+  grid-template-columns: 65% 35%;
+  grid-column-gap: 15px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 0px 0px;
+`;
+
+const PDLeftContent = styled.div `
+  display: grid;
+  grid-template-columns: 10% 90%;
+  grid-column-gap: 5px;
+  height: 640px;
+`;
+
+const PDRightContent = styled.div `
+
 `;
 
 export default class Main extends React.Component {
@@ -48,37 +63,29 @@ export default class Main extends React.Component {
     const randomProduct = Math.floor(Math.random() * 101);
     axios.get('http://localhost:8002/product-display')
       .then((results) => {
-        console.log(results)
         this.setState({
           products: results.data,
           currProduct: results.data[randomProduct]
-
-        }, () => {
-          console.log(this.state.currentProduct)
         })
       })
       .catch((err) => {
         console.log(err);
       })
   }
-
 
   getPhotos() {
     axios.get('http://localhost:8002/photo-display')
       .then((results) => {
         const randomProduct = Math.floor(Math.random() * 101);
         this.setState({
-          arrOfPhotos: [results.data[randomProduct].img, results.data[randomProduct].img1, results.data[randomProduct].img2, results.data[randomProduct].img3, results.data[randomProduct].img4, results.data[randomProduct].img5, results.data[randomProduct].img6, results.data[randomProduct].img7, results.data[randomProduct].img8, results.data[randomProduct].img9]
+          arrOfPhotos: [results.data[randomProduct].img, results.data[randomProduct].img1, results.data[randomProduct].img2, results.data[randomProduct].img3, results.data[randomProduct].img4, results.data[randomProduct].img5, results.data[randomProduct].img6, results.data[randomProduct].img7, results.data[randomProduct].img8]
 
-        }, () => {
-          console.log(this.state.arrOfPhotos)
         })
       })
       .catch((err) => {
         console.log(err);
       })
   }
-
 
   handleLeftClick() {
     if (this.state.currPhotoIndex === 0) {
@@ -89,8 +96,6 @@ export default class Main extends React.Component {
     }
     this.setState({
       currPhotoIndex: this.state.currPhotoIndex - 1
-    }, () => {
-      console.log(this.state.currPhotoIndex)
     })
   }
 
@@ -103,8 +108,6 @@ export default class Main extends React.Component {
     }
     this.setState({
       currPhotoIndex: this.state.currPhotoIndex + 1
-    }, () => {
-      console.log(this.state.currPhotoIndex)
     })
   }
 
@@ -117,8 +120,6 @@ export default class Main extends React.Component {
   favoritedModalPopUp() {
     this.setState ({
       isFavorited: true
-    }, () => {
-      console.log('modal is now true')
     })
   }
 
@@ -145,23 +146,21 @@ export default class Main extends React.Component {
 
       <MainContainer>
 
-        <div className="left-content">
+        <PDLeftContent>
           <ThumbnailDisplay arrOfPhotos={this.state.arrOfPhotos} changeCurrPhotoIndex={this.changeCurrPhotoIndex} currPhotoIndex={this.state.currPhotoIndex} />
-        </div>
 
-        <div className="left-middle-content">
           <DisplayImage arrOfPhotos={this.state.arrOfPhotos} currPhotoIndex={this.state.currPhotoIndex} handleLeftClick={this.handleLeftClick} handleRightClick={this.handleRightClick} zoomedModalPopUp={this.zoomedModalPopUp} favoritedModalPopUp={this.favoritedModalPopUp}/>
 
-          <Modal isZoomed={this.state.isZoomed} isFavorited={this.state.isFavorited} zoomedModalPopUp={this.zoomedModalPopUp} favoritedModalPopUp={this.favoritedModalPopUp} disableModal={this.disableModal}>
-            {this.state.isZoomed ? < DisplayImageModal arrOfPhotos={this.state.arrOfPhotos} currPhotoIndex={this.state.currPhotoIndex} changeCurrPhotoIndex={this.changeCurrPhotoIndex} handleLeftClick={this.handleLeftClick} handleRightClick={this.handleRightClick} /> : <FavoritedModal />}
+          <Modal isZoomed={this.state.isZoomed} isFavorited={this.state.isFavorited} zoomedModalPopUp={this.zoomedModalPopUp}        favoritedModalPopUp={this.favoritedModalPopUp} disableModal={this.disableModal}>
+            {this.state.isZoomed ? < DisplayImageModal arrOfPhotos={this.state.arrOfPhotos} currPhotoIndex={this.state.currPhotoIndex} changeCurrPhotoIndex={this.changeCurrPhotoIndex} handleLeftClick={this.handleLeftClick} handleRightClick={this.handleRightClick} /> : <FavoritedModal arrOfPhotos={this.state.arrOfPhotos} currProduct={this.state.currProduct}/>}
           </Modal>
-        </div>
+        </PDLeftContent>
 
-
-        <Description products={this.state.currProduct} />
+        <PDRightContent>
+          <Description products={this.state.currProduct} />
+        </PDRightContent>
 
       </MainContainer>
-
     )
   }
 
