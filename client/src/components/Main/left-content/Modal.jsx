@@ -6,8 +6,8 @@ import FavoritedModal from './FavoritedModal.jsx';
 
 
 const PDModal = styled.div `
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 400;
   left: 0;
   top: 0;
   right: 0;
