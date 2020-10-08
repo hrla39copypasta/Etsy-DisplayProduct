@@ -12,6 +12,7 @@ import FavoritedModal from './left-content/FavoritedModal.jsx';
 
 
 const MainContainer = styled.div`
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 65% 35%;
   grid-column-gap: 15px;
@@ -22,6 +23,7 @@ const MainContainer = styled.div`
 `;
 
 const PDLeftContent = styled.div `
+
   display: grid;
   grid-template-columns: 10% 90%;
   grid-column-gap: 5px;
@@ -29,7 +31,7 @@ const PDLeftContent = styled.div `
 `;
 
 const PDRightContent = styled.div `
-//
+
 `;
 
 export default class Main extends React.Component {
