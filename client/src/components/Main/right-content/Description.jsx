@@ -296,7 +296,7 @@ const PDCharacterCount = styled.div `
 const PDFadeOut = styled.div `
   max-height: 100px;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   margin-bottom: 10px;
 `;
 

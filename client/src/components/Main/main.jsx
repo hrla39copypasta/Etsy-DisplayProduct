@@ -29,7 +29,7 @@ const PDLeftContent = styled.div `
 `;
 
 const PDRightContent = styled.div `
-
+//
 `;
 
 export default class Main extends React.Component {

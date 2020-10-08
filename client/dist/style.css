@@ -1,0 +1,140 @@
+/* .Main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-container {
+  width: 65%;
+  background: rgb(80, 80, 172);
+}
+
+.right-container {
+  width: 35%; */
+} /*x\*
+
+.PD-sellerName {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 300;
+  color: #222222;
+  line-height: 28px;
+}
+
+.PD-sales-rating {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222222;
+  line-height: 20px;
+}
+
+.PD-bestseller {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  color: #222222;
+  line-height: 1
+}
+
+.PD-price {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 28px;
+  font-weight: 500;
+  color: #222222;
+  line-height: 32px;
+}
+
+.PD-instock {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+  color: #222222;
+  line-height: 18px;
+}
+
+.PD-style {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 300;
+  color: #222222;
+  line-height: 18px;
+}
+
+.PD-select-style {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  color: #222222;
+}
+
+.PD-personalization {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 300;
+  color: #222222;
+  line-height: 18px;
+}
+
+.PD-addToCart{
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 24px;
+  background-color: #222222;
+}
+
+.PD-other-carts {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+  color: #222222;
+  line-height: 18px;
+}
+
+.PD-ships-free {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 300;
+  color: #222222;
+  line-height: 18px;
+}
+
+.PD-handmade {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 300;
+  color: #595959;
+  line-height: 18px;
+}
+
+.PD-materials-title {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 300;
+  color: #595959;
+  line-height: 18px;
+}
+
+.PD-info-title {
+  font-family: "Graphik-Regular";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 300;
+  color:#595959;
+  line-height: 18px;
+}
