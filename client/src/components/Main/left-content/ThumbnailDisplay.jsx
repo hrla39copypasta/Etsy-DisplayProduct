@@ -59,7 +59,7 @@ export default class ThumbnailDisplay extends React.Component {
             this.props.arrOfPhotos.map((photo, index) => {
               return (
 
-                <PDSlide>
+                <PDSlide key={index}>
                 <PDThumbnail
                 style={index === this.props.currPhotoIndex ? {opacity: "1", border: "2px solid black" } : {}}
                 onClick={() => this.props.changeCurrPhotoIndex(index)}src={photo} key={index}></PDThumbnail>
