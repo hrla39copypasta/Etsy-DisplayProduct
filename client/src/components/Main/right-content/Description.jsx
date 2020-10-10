@@ -6,6 +6,7 @@ import { FaStar, FaBeer, FaCheck , FaTruck} from 'react-icons/fa';
 import styled from 'styled-components';
 import { TiShoppingCart } from "react-icons/ti";
 import { IoMdHand } from "react-icons/io";
+import Select from 'react-select'
 
 
 const PDRightContainer = styled.div `
@@ -303,16 +304,31 @@ const PDFadeOut = styled.div `
   margin-bottom: 10px;
 `;
 
+const options = [
+  {value: '30', label: 'Select a style'},
+  { value:'30', label:'Digital Only' },
+  { value:'50', label:'Canvas 8X10'},
+  { value:'80', label:'Canvas 12X16' },
+  { value:'100', label:'Canvas 18X24' },
+  { value:'45', label:'Poster 8X10' },
+  { value:'50', label:'Poster 12X16' },
+  { value:'90', label:'Poster 18X24' }
+]
+
+
 
 export default class Description extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       maxLength: 256,
-      charactersLeft: 256
+      charactersLeft: 256,
+      selectChoice: [],
     }
     this.handleClick = this.handleClick.bind(this);
     this.getRating = this.getRating.bind(this);
+    this.handleChoice = this.handleChoice.bind(this);
+
   }
 
   handleClick() {
@@ -322,6 +338,16 @@ export default class Description extends React.Component{
   handleText(e) {
     this.setState({
       charactersLeft: this.state.maxLength - e.target.value.length
+    }, () => {
+      console.log(e)
+    })
+  }
+
+  handleChoice(e) {
+    this.setState({
+      selectChoice: e.value
+    }, () => {
+      console.log(this.state.selectChoice)
     })
   }
 
@@ -359,22 +385,17 @@ export default class Description extends React.Component{
         <br></br>
 
         <PDPriceInStock>
-          <PDPrice>${this.props.products.price}+ </PDPrice>
+          <PDPrice>${this.state.selectChoice.length !== 0 ? this.state.selectChoice : this.props.products.price}+ </PDPrice>
           <PDInStock><FaCheck /> In stock</PDInStock>
         </PDPriceInStock>
 
         <PDStyle>Style</PDStyle>
 
-        <PDDropDown>
-          <PDSelectStyle>Select a style</PDSelectStyle>
-          <PDSelectStyle>Digital Only ($30)</PDSelectStyle>
-          <PDSelectStyle>Canvas 8X10 ($50)</PDSelectStyle>
-          <PDSelectStyle>Canvas 12X16 ($80)</PDSelectStyle>
-          <PDSelectStyle>Canvas 18X24 ($100)</PDSelectStyle>
-          <PDSelectStyle>Poster 8X10 ($45)</PDSelectStyle>
-          <PDSelectStyle>Poster 12X16 ($50)</PDSelectStyle>
-          <PDSelectStyle>Poster 18X24 ($90)</PDSelectStyle>
-        </PDDropDown>
+        {/* <PDDropDown> */}
+          {/* <PDSelectStyle>  */}
+            <Select options={options} onChange={(e) => this.handleChoice(e)}/>
+            {/* </PDSelectStyle> */}
+        {/* </PDDropDown> */}
 
         <PDPersonalization>Add your personalization</PDPersonalization>
 
@@ -424,3 +445,12 @@ export default class Description extends React.Component{
   }
 
 }
+
+
+{/* <PDSelectStyle> Digital Only ($30)</PDSelectStyle>
+          <PDSelectStyle >Canvas 8X10 ($50)</PDSelectStyle>
+          <PDSelectStyle >Canvas 12X16 ($80)</PDSelectStyle>
+          <PDSelectStyle>Canvas 18X24 ($100)</PDSelectStyle>
+          <PDSelectStyle>Poster 8X10 ($45)</PDSelectStyle>
+          <PDSelectStyle>Poster 12X16 ($50)</PDSelectStyle>
+          <PDSelectStyle>Poster 18X24 ($90)</PDSelectStyle> */}

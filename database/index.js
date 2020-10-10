@@ -3,8 +3,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   user: 'root',
   password: '',
-  database: 'etsy_MainDisplay',
-  // port: 8002
+  database: 'etsy_MainDisplay'
 });
 
 connection.connect((err)=>{
