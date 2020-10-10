@@ -63,7 +63,7 @@ export default class Main extends React.Component {
 
   getProducts() {
     const randomProduct = Math.floor(Math.random() * 101);
-    axios.get('http://localhost:8002/product-display')
+    axios.get('/product-display')
       .then((results) => {
         this.setState({
           products: results.data,
@@ -76,7 +76,7 @@ export default class Main extends React.Component {
   }
 
   getPhotos() {
-    axios.get('http://localhost:8002/photo-display')
+    axios.get('/photo-display')
       .then((results) => {
         const randomProduct = Math.floor(Math.random() * 101);
         this.setState({
