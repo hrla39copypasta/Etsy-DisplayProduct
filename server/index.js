@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
-app.use('/', express.static(path.join(__dirname, '../client/dist')));
+
 
 
 app.get('/product-display', (req, res) => {
@@ -37,5 +37,5 @@ app.get('/photo-display', (req, res) => {
 
 
 
-
+app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.listen(PATH, () => {console.log(`LISTENING ON PORT ${PATH}`)});
