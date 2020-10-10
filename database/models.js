@@ -3,7 +3,7 @@ const db = require('./');
 module.exports = {
 
   getInfo: (callback) => {
-    let queryStr = `SELECT * FROM etsy_productDescription;`
+    let queryStr = `SELECT * FROM etsy_ProductDescription;`
     db.query(queryStr, (err, results) => {
       if (err) {
         callback(err)
