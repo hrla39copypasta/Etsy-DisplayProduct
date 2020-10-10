@@ -14,7 +14,7 @@ const PDRightContainer = styled.div `
 `;
 
 const PDSellerName = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: 300;
@@ -24,7 +24,7 @@ const PDSellerName = styled.div `
 `;
 
 const PDSalesRating = styled.span `
-  font-family: "Graphik-Regular";
+  font-f amily: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
@@ -34,7 +34,7 @@ const PDSalesRating = styled.span `
 `;
 
 const PDProductName = styled.div `
-  font-family: 'Bitter', serif;
+font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 26px;
@@ -45,7 +45,7 @@ const PDProductName = styled.div `
 `;
 
 const PDBestSeller = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 400;
@@ -66,6 +66,7 @@ const PDBestSeller = styled.div `
 `;
 
 const PDPriceInStock = styled.div `
+font-family: 'Roboto', sans-serif;
   margin: 10px 0px;
   position: relative;
   display: flex;
@@ -73,16 +74,16 @@ const PDPriceInStock = styled.div `
 `;
 
 const PDPrice= styled.span `
-  font-family: "Graphik-Medium";
+  font-family: 'Graphik-Medium';
   font-style: normal;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: bold;
   color: #222222;
   line-height: 35px;
 `;
 
 const PDInStock = styled.span `
-  font-family: "Graphik-Regular";
+font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 500;
@@ -93,7 +94,7 @@ const PDInStock = styled.span `
 
 
 const PDStyle = styled.div `
-  font-family: "Graphik-Regular";
+font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 300;
@@ -106,7 +107,7 @@ const PDStyle = styled.div `
 
 const PDSelectStyle = styled.option `
   width: 100%;
-  font-family: "Graphik-Regular";
+font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: 400;
@@ -116,6 +117,7 @@ const PDSelectStyle = styled.option `
 
 
 const PDDropDown = styled.select `
+font-family: 'Roboto', sans-serif;
   width: 100%;
   box-shadow: 0 1px 6px 0 rgba(30, 30, 30, 0.10);
   display: block;
@@ -138,7 +140,7 @@ const PDDropDown = styled.select `
 `;
 
 const PDPersonalization = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 300;
@@ -148,7 +150,7 @@ const PDPersonalization = styled.div `
 `;
 
 const PDPersonalizationInfo = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 300;
@@ -191,7 +193,7 @@ const PDAddToCart = styled.button `
   outline: none;
   transition: all 150ms ease;
   color: #ffffff;
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: bold;
@@ -206,7 +208,7 @@ const PDAddToCart = styled.button `
   `;
 
 const PDOtherCarts = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 500;
@@ -219,7 +221,7 @@ const PDOtherCarts = styled.div `
 `;
 
 const PDShipsFree = styled.span `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 500;
@@ -233,7 +235,7 @@ const PDShipsFree = styled.span `
 `;
 
 const PDHandmade = styled.span `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 300;
@@ -247,7 +249,7 @@ const PDHandmade = styled.span `
 `;
 
 const PDMaterialsTitle = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 300;
@@ -257,7 +259,7 @@ const PDMaterialsTitle = styled.div `
 `;
 
 const PDMaterialsBody = styled.div `
-  font-family: 'Bitter', serif;
+font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 23px;
@@ -267,7 +269,7 @@ const PDMaterialsBody = styled.div `
 `;
 
 const PDInfoTitle = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 13px;
   font-weight: 300;
@@ -277,7 +279,7 @@ const PDInfoTitle = styled.div `
 `;
 
 const PDInfoBody= styled.div `
-  font-family: 'Graphik-Regular';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
@@ -289,6 +291,7 @@ const PDInfoBody= styled.div `
 `;
 
 const PDCharacterCount = styled.div `
+font-family: 'Roboto', sans-serif;
   text-align: right;
   margin-bottom: 10px;
 `;

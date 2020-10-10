@@ -10,7 +10,7 @@ const PDFavoritedModalBody = styled.div `
 `;
 
 const PDAddToFavorites = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 15px;
   font-weight: 300;
@@ -33,7 +33,7 @@ const PDTopLine = styled.div `
 `;
 
 const PDTitle = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 24px;
   font-weight: bold;
@@ -43,7 +43,7 @@ const PDTitle = styled.div `
 `;
 
 const PDTitleInstructions = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 300;
@@ -53,7 +53,7 @@ const PDTitleInstructions = styled.div `
 `;
 
 const PDSignInEmail = styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: bold;
@@ -95,7 +95,7 @@ const PDContinueButton = styled.button `
   outline: none;
   transition: all 150ms ease;
   color: #ffffff;
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: bold;
@@ -113,7 +113,7 @@ const PDTrouble = styled.div `
   text-align: center;
   transform: translate (-50%;-50%);
   color: #595959;
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 12px;
   font-weight: 300;
@@ -163,7 +163,7 @@ const PDContinueWith = styled.button `
   outline: none;
   transition: all 150ms ease;
   color: #222222;
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: bold;
@@ -185,7 +185,7 @@ const PDOr = styled.div `
 `;
 
 const PDTerms= styled.div `
-  font-family: "Graphik-Regular";
+  font-family: 'Roboto', sans-serif;
   margin-top: 18px;
   color: #595959;
   font-weight: 300;

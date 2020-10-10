@@ -12,11 +12,13 @@ const PDDisplayImageModalBody = styled.div `
   padding: 10px;
   display: flex;
   justify-content: center;
-  object-fit: contain;
 
 `;
 
+
+
 const PDDisplayImageSlide = styled.div `
+  display: block;
   height: 640px;
   width: 859px;
   position: relative;
@@ -28,12 +30,9 @@ const PDDisplayImageSlide = styled.div `
   margin-right: 100px;
   border-radius: 2% 2% 2% 2%;
   overflow: hidden;
-  background-position: 50% 50%;
+  background-position: fixed;
   background-repeat: no-repeat;
 
-    &:hover div{
-      opacity: 0;
-    }
 `;
 
 const PDDisplayImageImg = styled.div `
@@ -49,11 +48,12 @@ const PDDisplayImageImg = styled.div `
   width: 859px;
   background-position: 50% 50%;
   opacity: 1;
-  background-image: none;
+  over-flow: hidden;
 
   &:hover {
     cursor: pointer;
     opacity: 0;
+
   }
 `;
 
@@ -131,6 +131,7 @@ export default class DisplayImageModal extends React.Component {
       backgroundPosition: '0% 0%',
     }
     this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.ref = React.createRef();
   }
 
 
@@ -172,8 +173,17 @@ export default class DisplayImageModal extends React.Component {
       backgroundPosition: `${x}% ${y}%`
     })
   }
+  // style={{backgroundPosition: this.state.backgroundPosition,  backgroundImage: "url('" + this.props.arrOfPhotos[this.state.modalPhotoIndex] + "')"}}
 
+  handleMouseEnter (e, ref) {
+    console.log(ref)
+    ref.style.backgroundImage = "url('" + this.props.arrOfPhotos[this.state.modalPhotoIndex] + "')"
+  }
 
+  handleMouseLeave (e, ref) {
+    console.log(ref)
+    ref.style.backgroundImage = "none";
+  }
 
 
 
@@ -181,10 +191,14 @@ export default class DisplayImageModal extends React.Component {
     return (
 
       <PDDisplayImageModalBody>
-
           <PDDisplayImageSlide
-            style={{backgroundPosition: this.state.backgroundPosition,  backgroundImage: "url('" + this.props.arrOfPhotos[this.state.modalPhotoIndex] + "')"}}
-            onMouseMove={this.handleMouseMove}>
+          ref={this.ref}
+            style={{backgroundPosition: this.state.backgroundPosition}}
+            onMouseMove={this.handleMouseMove}
+            // onMouseEnter={(e) => e.target.style.backgroundImage = "url('" + this.props.arrOfPhotos[this.state.modalPhotoIndex] + "')"}
+            onMouseEnter={(e)=>this.handleMouseEnter(e, this.ref.current)}
+            onMouseLeave={(e)=>this.handleMouseLeave(e, this.ref.current)}
+            >
 
             <PDDisplayImageImg
               className ="ModalImage"

@@ -15,6 +15,7 @@ const PDLeftContainer= styled.div `
   min-width: 100%;
   max-width: 100%;
   position: relative;
+  border-radius: 2% 2% 2% 2% !important;
 `;
 
  const PDSlide = styled.div `
@@ -27,10 +28,12 @@ const PDLeftContainer= styled.div `
   min-width: 100%;
   max-width: 100%;
   object-fit: contain;
+  border-radius: 2% 2% 2% 2% !important;
+
  `;
 
  const PDMainImageWrapper = styled.div `
-  border-radius: 5%;
+  // border-radius: 5%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -39,9 +42,11 @@ const PDLeftContainer= styled.div `
   min-width: 100%;
   max-width: 100%;
   object-fit: contain;
+  border-radius: 2% 2% 2% 2% !important;
  `;
 
  const PDMainImage = styled.img `
+ border-radius: 2% 2% 2% 2% !important;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -51,6 +56,7 @@ const PDLeftContainer= styled.div `
   max-width: 100%;
   object-fit: contain;
   display: block;
+
  `;
 
  const PDGoLeft = styled.button `
