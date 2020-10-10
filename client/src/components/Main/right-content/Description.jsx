@@ -309,10 +309,12 @@ export default class Description extends React.Component{
     super(props)
     this.state = {
       maxLength: 256,
-      charactersLeft: 256
+      charactersLeft: 256,
+      dropDownSelect: ""
     }
     this.handleClick = this.handleClick.bind(this);
     this.getRating = this.getRating.bind(this);
+    this.handleChoice = this.handleChoice.bind(this);
   }
 
   handleClick() {
@@ -322,6 +324,15 @@ export default class Description extends React.Component{
   handleText(e) {
     this.setState({
       charactersLeft: this.state.maxLength - e.target.value.length
+    })
+  }
+
+  handleChoice(e){
+    console.log(e)
+    this.setState({
+      dropDownSelect: e.target.value
+    }, () => {
+      console.log(this.state.dropDownSelect)
     })
   }
 
@@ -367,9 +378,9 @@ export default class Description extends React.Component{
 
         <PDDropDown>
           <PDSelectStyle>Select a style</PDSelectStyle>
-          <PDSelectStyle>Digital Only ($30)</PDSelectStyle>
-          <PDSelectStyle>Canvas 8X10 ($50)</PDSelectStyle>
-          <PDSelectStyle>Canvas 12X16 ($80)</PDSelectStyle>
+          <PDSelectStyle value={this.state.dropDownSelect} onChange={(e) =>this.handleChoice(e)}> Digital Only ($30)</PDSelectStyle>
+          <PDSelectStyle value={this.state.dropDownSelect} onChange={(e) =>this.handleChoice(e)}>Canvas 8X10 ($50)</PDSelectStyle>
+          <PDSelectStyle value={this.state.dropDownSelect} onChange={this.handleChoice}>Canvas 12X16 ($80)</PDSelectStyle>
           <PDSelectStyle>Canvas 18X24 ($100)</PDSelectStyle>
           <PDSelectStyle>Poster 8X10 ($45)</PDSelectStyle>
           <PDSelectStyle>Poster 12X16 ($50)</PDSelectStyle>
