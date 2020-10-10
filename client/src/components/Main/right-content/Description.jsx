@@ -328,7 +328,6 @@ export default class Description extends React.Component{
     this.handleClick = this.handleClick.bind(this);
     this.getRating = this.getRating.bind(this);
     this.handleChoice = this.handleChoice.bind(this);
-
   }
 
   handleClick() {
@@ -348,6 +347,15 @@ export default class Description extends React.Component{
       selectChoice: e.value
     }, () => {
       console.log(this.state.selectChoice)
+    })
+  }
+
+  handleChoice(e){
+    console.log(e)
+    this.setState({
+      dropDownSelect: e.target.value
+    }, () => {
+      console.log(this.state.dropDownSelect)
     })
   }
 
