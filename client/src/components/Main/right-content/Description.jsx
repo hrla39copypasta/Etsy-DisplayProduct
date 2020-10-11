@@ -106,27 +106,20 @@ font-family: 'Roboto', sans-serif;
   margin-bottom: 10px;
 `;
 
-const PDSelectStyle = styled.option `
-  width: 100%;
-font-family: 'Roboto', sans-serif;
+
+const PDDropDown = styled.div `
   font-style: normal;
   font-size: 16px;
   font-weight: 400;
-  color: #222222;
-  cursor: pointer;
-`;
-
-
-const PDDropDown = styled.select `
-font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   box-shadow: 0 1px 6px 0 rgba(30, 30, 30, 0.10);
   display: block;
-  height: 50px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 9px;
-  padding-bottom: 9px;
+  height: 25px;
+  // padding-left: 1px;
+  // padding-right: 1px;
+  outline: none;
+  padding-bottom: 13px;
   border-radius: 6px;
   background: #FFFFFF;
   border-style: solid;
@@ -297,12 +290,6 @@ font-family: 'Roboto', sans-serif;
   margin-bottom: 10px;
 `;
 
-const PDFadeOut = styled.div `
-  max-height: 100px;
-  position: relative;
-  // overflow: hidden;
-  margin-bottom: 10px;
-`;
 
 const options = [
   {value: '30', label: 'Select a style'},
@@ -350,15 +337,6 @@ export default class Description extends React.Component{
     })
   }
 
-  handleChoice(e){
-    console.log(e)
-    this.setState({
-      dropDownSelect: e.target.value
-    }, () => {
-      console.log(this.state.dropDownSelect)
-    })
-  }
-
 
   getRating(rating) {
     if (rating === 1 || rating === 0) {
@@ -399,11 +377,9 @@ export default class Description extends React.Component{
 
         <PDStyle>Style</PDStyle>
 
-        {/* <PDDropDown> */}
-          {/* <PDSelectStyle>  */}
+        <PDDropDown>
             <Select options={options} onChange={(e) => this.handleChoice(e)}/>
-            {/* </PDSelectStyle> */}
-        {/* </PDDropDown> */}
+        </PDDropDown>
 
         <PDPersonalization>Add your personalization</PDPersonalization>
 
@@ -442,11 +418,9 @@ export default class Description extends React.Component{
 
         <PDInfoTitle>Description</PDInfoTitle>
 
-        <PDFadeOut>
-          <PDInfoBody>{this.props.products.info}</PDInfoBody> <br></br>
-        </PDFadeOut>
 
-        {/* <PDInfoBodyReadMore>Learn more about this item</PDInfoBodyReadMore> */}
+        <PDInfoBody>{this.props.products.info}</PDInfoBody> <br></br>
+
 
       </PDRightContainer>
     )
@@ -455,10 +429,3 @@ export default class Description extends React.Component{
 }
 
 
-{/* <PDSelectStyle> Digital Only ($30)</PDSelectStyle>
-          <PDSelectStyle >Canvas 8X10 ($50)</PDSelectStyle>
-          <PDSelectStyle >Canvas 12X16 ($80)</PDSelectStyle>
-          <PDSelectStyle>Canvas 18X24 ($100)</PDSelectStyle>
-          <PDSelectStyle>Poster 8X10 ($45)</PDSelectStyle>
-          <PDSelectStyle>Poster 12X16 ($50)</PDSelectStyle>
-          <PDSelectStyle>Poster 18X24 ($90)</PDSelectStyle> */}
